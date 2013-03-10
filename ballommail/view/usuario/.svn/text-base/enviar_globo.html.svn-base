@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ballon mail</title>
+<link href="css/estilo.css" rel="stylesheet" type="text/css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!-- include the Tools -->
+<link rel="stylesheet" type="text/css" href="css/scrollable-navigator.css"/>	
+<link rel="stylesheet" type="text/css" href="css/scrollable-horizontal.css"/>	
+<link rel="stylesheet" type="text/css" href="css/scrollable-buttons.css"/>	
+
+<script src="http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js"></script>
+	 
+
+	<!-- standalone page styling (can be removed) -->
+	
+
+
+<script type="text/javascript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<style type="text/css">
+<!--
+.fecha {
+	font-style: italic;
+	text-decoration: none;
+}
+-->
+</style>
+<body onload="MM_preloadImages('imagenes/cerrar2.png')">
+
+<div id="paisaje">
+  <div id="cabecera">
+    <div id="nube_login">
+      <table width="280" border="0" align="center" cellpadding="0" cellspacing="2">
+        <tr>
+          <td colspan="3" align="left"><h1>Vicente's Hill</h1></td>
+        </tr>
+        <tr>
+          <td width="70%" align="right" valign="top"><a href="#">Cerrar Seción</a></td>
+          <td width="118" colspan="2" align="center"><a href="#"><img src="imagenes/user.jpg" width="60" height="61" /></a></td>
+        </tr>
+      </table>
+    </div>
+    <img src="imagenes/logobaloon.png" width="302" height="157" />
+    <div id="contenido">
+      <div id="col_central">
+        <div id="papiro">
+          <table width="670" height="356" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="75" rowspan="3" valign="top" background="imagenes/papiro/papiro_01.png" style="background-position:right; background-repeat:no-repeat"><p>&nbsp;</p>
+              <p>&nbsp;</p></td>
+              <td height="30" background="imagenes/papiro/papiro_02enviar.png" style="background-position:bottom; background-repeat:no-repeat">&nbsp;</td>
+              <td width="91" rowspan="3" valign="top" background="imagenes/papiro/papiro_03.png" style="background-position:left; background-repeat:no-repeat"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('cerrar','','imagenes/cerrar2.png',1)"><img src="imagenes/cerrar.png" alt="" name="cerrar" width="9" height="9" border="0" class="cerrar_msj" id="cerrar" /></a></td>
+            </tr>
+            <tr>
+              <td height="266" valign="top" style="background-image:url(imagenes/papiro/papiro_03enviar.png); background-position:center"><table width="100%" border="0" cellpadding="0" cellspacing="2">
+                <tr>
+                  <td colspan="2"><h1>
+                    <input name="textarea" style="width:98%;background-color:transparent; overflow-x:hidden; overflow-y:auto; border: solid thin #999999;" value="Escribe el titulo" label="label"/></input>
+                  </h1></td>
+                  <td width="64%" align="right" class="fecha">Buenos Aires, Argentina. abr/11/2011</td>
+                  <td width="1%" colspan="2" align="right">&nbsp;</td>
+                </tr>
+                </table>
+                <div id="papiro_central_enviar">
+                <table width="100%" border="0" cellpadding="0" cellspacing="2">
+                  <tr>
+                    <td width="200%" height="190" colspan="4" valign="top"><textarea label style="width:98%; height:90%; background-color:transparent; overflow-x:hidden; overflow-y:auto; border: solid thin #999999;"/>Escriba el mensaje a enviar en el globo </textarea></td>
+                  </tr>
+                  </table>
+              </div>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="30%" rowspan="2" valign="middle" class="anotacion"><p>
+                      <input type="checkbox" class="anotacion" name="checkbox" id="checkbox" />
+                      No publicar en bitácora<br />
+                      <input type="checkbox" name="checkbox2" id="checkbox2" />
+                    No aceptar respuesta</p></td>
+                    <td width="31%" rowspan="2" align="center"><a href="#"><img src="imagenes/soltar_globo.png" width="111" height="24" border="0" /></a></td>
+                    <td width="21%" align="center"><select name="select3" class="bajo_soltar" id="select3" style="border:none; width:80px; background-color:transparent">
+                      <option>Filosofia</option>
+                      <option>Diseño</option>
+                    </select></td>
+                    <td width="18%" align="center"><select name="select" class="bajo_soltar" id="select" style="border:none; width:80px; background-color:transparent">
+                      <option>Español</option>
+                      <option>Frances</option>
+                      <option>Aleman</option>
+                      <option>Portugues</option>
+                      <option>Italiano</option>
+                      <option>Japones</option>
+                      <option>Chino</option>
+                    </select></td>
+                  </tr>
+                  <tr>
+                    <td align="center" valign="middle"><img src="imagenes/clip.png" width="11" height="12" /><a href="#" class="bajo_soltar">Adjuntar archivo </a></td>
+                    <td><div class="scroll_checkboxes_adj" id="scrolabeCheck4">
+                      <label class="bajo_soltar_adj">
+                      image2.jpg<br /></label>
+                      <label class="bajo_soltar_adj">
+                      image3.jpg<br /></label>
+                    </div></td>
+                  </tr>
+              </table></td>
+            </tr>
+            <tr>
+              <td width="504" height="47" background="imagenes/papiro/papiro_05enviar.png" style="background-position:top; background-repeat:no-repeat">&nbsp;</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div id="col_lateral"><img src="imagenes/bnews.png" width="87" height="29" /><img src="imagenes/bnews_foto.jpg" width="100" height="66" />
+        <p>Concurso de Literatura<br />
+        Se realizara un concurso de literatura el dia 30/02/2011 a las 21:00h en la biblioteca nacional.</p> 
+      </div>
+
+    </div>
+  </div>
+  <div id="bajomenu">
+   <div id="menuback">
+   <div id="menu"><a href="hill.html">Hill</a> <a href="enviar_globo.html">enviar globo</a> <a href="#">bitácora</a> <a href="#">vuelos</a> <a href="#">contactos</a> <a href="#">perfil</a> <a href="#">bNews</a></div>
+   </div>
+   <div id="contenido_menu">
+   <div id="mensajes">
+     <div class="navi"></div>
+	 <a class="prev browse left"></a>
+     
+
+<!-- root element for scrollable -->
+<div class="scrollable" id="browsable">   
+   
+   <!-- root element for the items -->
+   <div class="items">
+     <div><a href="#"><img src="imagenes/msj1.png" width="85" height="140" border="0" /></a>
+     <a href="#"><img src="imagenes/msj1.png" width="85" height="140" border="0" /></a>
+     <a href="#"><img src="imagenes/msj1.png" width="85" height="140" border="0" /></a>
+     <a href="#"><img src="imagenes/msj1.png" width="85" height="140" border="0" /></a>
+     <a href="#"><img src="imagenes/msj1.png" width="85" height="140" border="0" /></a>
+	</div>
+	
+    <div> 
+	<a href="#"><img src="imagenes/msj2.png" width="85" height="140" border="0" /></a>
+    <a href="#"><img src="imagenes/msj2.png" width="85" height="140" border="0" /></a>
+    <a href="#"><img src="imagenes/msj2.png" width="85" height="140" border="0" /></a>
+    <a href="#"><img src="imagenes/msj2.png" width="85" height="140" border="0" /></a>
+    <a href="#"><img src="imagenes/msj2.png" width="85" height="140" border="0" /></a>	
+	</div>
+	<div> 
+	<a href="#"><img src="imagenes/msj3.png" width="85" height="140" border="0" /></a>
+    <a href="#"><img src="imagenes/msj3.png" width="85" height="140" border="0" /></a>
+    <a href="#"><img src="imagenes/msj3.png" width="85" height="140" border="0" /></a>
+	</div>
+     </div> 
+	 </div> 
+   
+	<a class="next browse right"></a>
+	<div class="naviPag">1 de 3</div>
+  </div>
+ 
+ 
+
+
+
+
+<!-- javascript coding -->
+<script>
+// What is $(document).ready ? See: http://flowplayer.org/tools/documentation/basics.html#document_ready
+$(document).ready(function() {
+
+// initialize scrollable together with the navigator plugin
+$("#browsable").scrollable().navigator();	
+});
+</script>
+
+
+   <p>&nbsp;</p>
+     <p>&nbsp;</p>
+   </div>
+  </div>
+<div id="pieback">
+<div id="pie"><a href="#">Español</a> <a href="#">English</a></div>
+</div>
+</div>
+
+</body>
+</html>

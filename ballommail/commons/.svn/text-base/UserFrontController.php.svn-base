@@ -1,0 +1,256 @@
+<?php
+
+class UserFrontController {
+
+
+
+private static function invokeAction($action, $controller){
+
+ 		$actionName=$action;
+ 		$controllerName=$controller;
+
+ 		$config= Config::singleton();
+
+ 		//TODO UserFrontController es utilizado desde contenidoIndex.php (página principal del perfil
+ 		//usuario) se debería hacer una función, que tome el directorio desde donde es invocado,
+ 		//y se obtenga el path correspondiente al directorio donde se encuentran las vistas,
+ 		//el directorio view se debe establecer en la configuración.
+
+		//$config->set('controllersFolder', '../../controller/');
+		$config->set('viewsFolder', '../../view/usuario/');
+		//$config->set('modelsFolder', '../../model/');
+
+		//Formamos el nombre del Controlador o en su defecto, tomamos que es el IndexController
+		if(!isset($controllerName)){
+		      $controllerName = 'IndexController';
+		}
+		else
+			 $controllerName = $controllerName.'Controller';
+		if(!isset($actionName)) {
+			  $actionName = "index";
+		}
+
+		//Si no existe la clase que buscamos y su accion, tiramos un error 404
+		if (is_callable(array($controllerName, $actionName)) == false)
+		{
+			trigger_error ($controllerName . '->' . $actionName . ' no existe', E_USER_NOTICE);
+			return false;
+		}
+		//Si todo esta bien, creamos una instancia del controlador y llamamos a la accion
+
+		$controller = new $controllerName();
+		$controller->$actionName();
+
+ 	}
+
+
+
+
+public static function invoke($action, $controller, $panel, $menuOption) {
+
+		//echo $action.$controller.$panel.$menuOption;
+
+		$controller= new UserController();
+
+		if ($menuOption=="eliminarPerfil") //nube.php - eliminar
+		{
+			UserFrontController::invokeAction("EliminarFotoPerfil", "Header");
+		}
+
+		if ($menuOption=="SubirFotoPerfil") //nube.php - subir Foto
+		{
+			UserFrontController::invokeAction("SubirFotoPerfil", "Header");
+		}
+
+		if ($panel==0) { //nube.php
+				UserFrontController::invokeAction("getHeader", "Header");
+
+		}
+		elseif ($panel == 1) {// panel superior
+			if ($controller->primeraVezLogueado(Session::getInstance()->usuario))
+				UserFrontController::invokeAction("perfilForm", "Perfil");
+			elseif (isset($action) && isset($controller) ) {
+			 	UserFrontController::invokeAction($_GET['action'], $_GET['controller']);
+			 }
+			 elseif (!isset($menuOption) && (!isset($action) )) { //inicio
+			 	$_REQUEST['idMensaje']= 1;
+				//UserFrontController::invokeAction("verMensajeRecibido", "Mensajes");
+				UserFrontController::invokeAction("colinaVacia", "Panel");
+			 }
+			 elseif ($menuOption=="hill") { //mi colina
+				$_REQUEST['idMensaje']= 1;
+				UserFrontController::invokeAction("colinaVacia", "Panel");
+			}
+			 elseif ($menuOption=="enviarGlobo") { //enviar globo
+			 	if (!isset($_GET['idGlobo'])) {
+			 		$_GET['idGlobo']= 1;
+			 	}
+				UserFrontController::invokeAction("mensajeForm", "Mensajes");
+			}
+			 elseif ($menuOption=="soltarGlobo") {
+				UserFrontController::invokeAction("enviarMensaje", "Mensajes");
+
+			}
+
+		// Funcion para eliminar el globo
+		 elseif ($menuOption=="eliminarGlobo") {
+				UserFrontController::invokeAction("eliminar", "Mensajes");
+			}
+
+		//Funcion para reportar un abuso
+		 elseif ($menuOption=="reportarAbuso") {
+				UserFrontController::invokeAction("reportarAbuso", "Mensajes");
+			}
+
+		//Funcion para responder a un globo
+			 elseif ($menuOption=="responder") {
+				UserFrontController::invokeAction("responder", "Mensajes");
+			}
+
+		//Funcion para devolver al cielo un globo
+			 elseif ($menuOption=="devolverAlCielo") {
+				UserFrontController::invokeAction("devolverAlCielo", "Mensajes");
+			}
+
+			 elseif ($menuOption=="perfil") {
+				UserFrontController::invokeAction("perfilForm", "Perfil");
+			}
+			 elseif ($menuOption=="verMensajeRecibido") {
+			 	UserFrontController::invokeAction("verMensajeRecibido", "Mensajes");
+			}
+		 	 elseif ($menuOption=="vuelos") {
+			 	UserFrontController::invokeAction("getMapa", "Vuelos");
+			}
+			elseif ($menuOption=="getMensajesLeidos") {
+			 	UserFrontController::invokeAction("colinaVacia", "Panel");
+			}
+			elseif ($menuOption=="getMensajesNuevos") {
+			 	UserFrontController::invokeAction("colinaVacia", "Panel");
+			}
+			elseif ($menuOption=="contactos") {
+			 	UserFrontController::invokeAction("colinaVacia", "Panel");
+			}
+			elseif ($menuOption=="verHomeContacto") {
+				UserFrontController::invokeAction("verContacto", "Contacto");
+			}
+			elseif ($menuOption=="verBitacoraContacto") {
+			 	UserFrontController::invokeAction("verBitacoraContacto", "Bitacora");
+			}
+
+			elseif ($menuOption=="sugerirCorriente") {
+			 	UserFrontController::invokeAction("sugerirCorriente", "Mensajes");
+			}
+			elseif ($menuOption=="peticionContacto") {
+			 	UserFrontController::invokeAction("peticionContacto", "Contacto");
+			}
+			elseif ($menuOption=="aceptarContacto") {
+			 	UserFrontController::invokeAction("aceptarContacto", "Contacto");
+			}
+			elseif ($menuOption=="enviarMensajeContactoForm") {
+			 	UserFrontController::invokeAction("enviarMensajeContactoForm", "Mensajes");
+			}
+			elseif ($menuOption=="enviarMensajeContacto") {
+			 	UserFrontController::invokeAction("enviarMensajeContacto", "Mensajes");
+			}
+			elseif ($menuOption=="bloquearContacto") {
+			 	UserFrontController::invokeAction("bloquearContacto", "Contacto");
+			}
+			elseif ($menuOption=="bloquearContactoConfirmacion") {
+			 	UserFrontController::invokeAction("bloquearContactoConfirmacion", "Contacto");
+			}
+			elseif ($menuOption=="peticionContactoConfirmacion") {
+			 	UserFrontController::invokeAction("peticionContactoConfirmacion", "Contacto");
+			}
+			elseif ($menuOption=="vuelosContacto") {
+			 	UserFrontController::invokeAction("mapaContacto", "Contacto");
+			}
+
+		}
+
+		elseif ($panel == 2) { //panel inferior
+			if ($controller->primeraVezLogueado(Session::getInstance()->usuario)){
+				UserFrontController::invokeAction("panelInferiorVacio", "Panel");
+			}
+			elseif (isset($action) && isset($controller) && !isset($menuOption) ) {
+			 	UserFrontController::invokeAction($_GET['action'], $_GET['controller']);
+			}
+			elseif (!isset($menuOption)) { //inicio
+				$_REQUEST['page']=1;
+				UserFrontController::invokeAction("getMensajesNuevos", "Mensajes");
+			}
+			elseif ($menuOption=="hill") { //mi colina
+				UserFrontController::invokeAction("getMensajesNuevos", "Mensajes");
+			}
+			elseif ($menuOption=="enviarGlobo") { //enviar globo
+				UserFrontController::invokeAction("getGlobos", "Globos");
+
+			}
+			elseif ($menuOption=="perfil" || $menuOption=="sugerirCorriente" ||$menuOption=="verHomeContacto"|| $menuOption=="verBitacoraContacto"
+			|| $menuOption=="peticionContacto"
+			) { //perfil
+
+				UserFrontController::invokeAction("panelInferiorVacio", "Panel");
+			}
+
+			elseif ($menuOption=="soltarGlobo") { //soltar globo
+				UserFrontController::invokeAction("getMensajesLeidos", "Mensajes");
+			}
+			elseif ($menuOption=="soltarGlobo") { //soltar globo
+				UserFrontController::invokeAction("getGlobos", "Globos");
+			}
+			elseif ($menuOption=="verMensajeRecibido") {
+				UserFrontController::invokeAction("getMensajesNuevos", "Mensajes");
+			}
+
+			elseif ($menuOption=="vuelos") {
+			 	//$_REQUEST['page']=1;
+		 	 	UserFrontController::invokeAction("getEstadisticaVuelos", "Vuelos");
+			}
+			elseif ($menuOption=="getMensajesLeidos" || $menuOption=="eliminarGlobo") {
+			 	UserFrontController::invokeAction("getMensajesLeidos", "Mensajes");
+			}
+			elseif ($menuOption=="getMensajesNuevos") {
+			 	UserFrontController::invokeAction("getMensajesNuevos", "Mensajes");
+			}
+			elseif ($menuOption=="contactos") {
+			 	UserFrontController::invokeAction("getContactos", "Contacto");
+			}
+			elseif ($menuOption=="buscarContacto") {
+			 	UserFrontController::invokeAction("buscarContacto", "Contacto");
+			}
+			elseif ($menuOption=="desbloquearContacto") {
+			 	UserFrontController::invokeAction("desbloquearContacto", "Contacto");
+			}
+			elseif ($menuOption=="deleteContacto") {
+			 	UserFrontController::invokeAction("deleteContacto", "Contacto");
+			}
+			elseif ($menuOption=="vuelosContacto") {
+			 	UserFrontController::invokeAction("estadisticaContacto", "Contacto");
+			}
+
+
+
+	}
+
+	if ($menuOption=="bitacora") {
+			if (!isset($_REQUEST['page'])) {
+				$_REQUEST['page']=1;
+			}
+		 	UserFrontController::invokeAction("getBitacora", "Bitacora");
+	}
+	elseif ($menuOption=="publicarBitacora") {
+			 UserFrontController::invokeAction("publicarEntrada", "Bitacora");
+	}
+	elseif ($menuOption=="eliminarBitacora") {
+			 UserFrontController::invokeAction("eliminarEntrada", "Bitacora");
+	}
+
+
+
+
+}
+
+}
+
+
+?>

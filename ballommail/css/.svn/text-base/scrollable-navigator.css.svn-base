@@ -1,0 +1,41 @@
+/* position and dimensions of the navigator */
+.navi {
+	margin-left:340px;
+	width:400px;
+	height:15px;
+	margin-bottom: 1px;
+}
+
+
+/* items inside navigator */
+.navi a {
+	width:8px;
+	height:8px;
+	float:left;
+	margin:3px;
+	display:block;
+	font-size:1px;
+	background-image: url(../imagenes/scrollable/arrow/navigator.png);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+/* mouseover state */
+.navi a:hover {
+	background-position:0 -8px;      
+}
+
+/* active state (current page state) */
+.navi a.active {
+	background-position:0 -16px;     
+}
+.naviPag {
+	margin-left:340px;
+	width:400px;
+	height:15px;
+	margin-bottom: 5px;
+	clear: both;
+	color: #FFF;
+	font-size: 100%;
+	margin-top: 0px;
+}

@@ -1,0 +1,2 @@
+<a href="contenidoIndex.php?menuOption=verHomeContacto&idContacto=<?php echo $_REQUEST['idContacto'];?>">Perfil</a>
+<a href="contenidoIndex.php?menuOption=enviarMensajeContactoForm&idContacto=<?php echo $_REQUEST['idContacto'];?>">Enviar globo</a><a href="contenidoIndex.php?menuOption=verBitacoraContacto&idContacto=<?php echo $_REQUEST['idContacto'];?>">Bit&aacute;cora</a><a href="contenidoIndex.php?menuOption=vuelosContacto&idContacto=<?php echo $_REQUEST['idContacto'];?>">Vuelos</a><a href="contenidoIndex.php?menuOption=contactos">Volver a contactos</a>

@@ -1,0 +1,13 @@
+@relation weather.symbolic_predicted
+
+@attribute outlook {sunny,overcast,rainy}
+@attribute temperature {hot,mild,cool}
+@attribute humidity {high,normal}
+@attribute windy {TRUE,FALSE}
+@attribute predictedoutlook2 {sunny,overcast,rainy}
+@attribute outlook2 {sunny,overcast,rainy}
+
+@data
+sunny,cool,normal,FALSE,rainy,rainy
+rainy,cool,normal,FALSE,rainy,overcast
+overcast,cool,normal,FALSE,rainy,?
